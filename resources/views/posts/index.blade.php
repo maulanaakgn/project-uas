@@ -21,20 +21,19 @@
                 <tbody>
                     <tr>
                         <td class="text-center">
-                            <img src="{{ asset('images/254721151_utb_kotak.png') }}" class="rounded" style="width: 150px"
-                                alt="Post
-Image">
+                            <img src="{{ asset('images/254721151_utb_kotak.png') }}" class="rounded" style="width: 150px" alt="PostImage">
                         </td>
                         <td>Contoh Judul</td>
                         <td>Contoh Konten</td>
                         <td class="text-center">
                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
-                                <a href="{{ route('posts.view', 1) }}" class="btn btn-dark btn-sm">SHOW</a>
-                                <a href="{{ route('posts.edit', 1) }}" class="btn btn-primary btn-sm">EDIT</a>
+                                <a href="{{ route('posts.view', 1)}}" class="btn btn-dark btn-sm">SHOW</a>
+                                <a href="{{ route('posts.edit', 1)}}" class="btn btn-primary btn-sm">EDIT</a>
                                 <button type="submit" class="btn btn-danger btn-sm">HAPUS</button>
                             </form>
                         </td>
                     </tr>
+
                     <!-- Jika tidak ada data -->
                     <tr>
                         <td colspan="4" class="text-center">
@@ -45,6 +44,7 @@ Image">
                     </tr>
                 </tbody>
             </table>
+
             <!-- Pagination -->
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">

@@ -9,7 +9,6 @@ Route::get('/', function () {
 
 Route::resource('/posts', PostController::class);
 
-Route::get('/welcome', [PostController::class, 'welcome'])->name('posts.welcome');
 Route::get('/view', [PostController::class, 'view'])->name('posts.view');
 Route::get('/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::get('/login', [PostController::class, 'login'])->name('posts.login');

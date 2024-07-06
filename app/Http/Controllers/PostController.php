@@ -18,11 +18,6 @@ class PostController extends Controller
         return view('posts.index');
     }
 
-    public function welcome()
-    {
-        return view('posts.welcome');
-    }
-
     public function view()
     {
         return view('posts.view');
