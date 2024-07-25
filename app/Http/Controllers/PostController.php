@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
@@ -18,8 +19,10 @@ class PostController extends Controller
     public function index(): view
     {
         $posts = Post::latest()->paginate(5);
-        return view('posts.index',compact('posts'));
+        $user = Auth::user();
+        return view('posts.index', compact('posts', 'user'));
     }
+
 
     public function generatePDF()
     {
@@ -76,7 +79,7 @@ class PostController extends Controller
         $validate = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg,ico|max:2048',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,ico|max:2048',
         ]);
 
         $post = Post::findOrFail($id);
@@ -94,6 +97,7 @@ class PostController extends Controller
 
         return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
     }
+
 
     public function destroy($id)
     {
